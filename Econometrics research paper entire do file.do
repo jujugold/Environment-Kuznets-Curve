@@ -79,7 +79,7 @@ gen l_c02pc = ln(c02emissionsmtpercapita/l.c02emissionsmtpercapita)
 gen l_c02pc = ln( c02emissionsmtpercapita/l.c02emissionsmtpercapita)
 gen l_c02pc = ln( c02emissionsmtpercapita/l.c02emissionsmtpercapita)
 clear
-use "/Users/JGoldhill/Downloads/Hani & JGold Carbon_GDP Data Analysis.dta"
+use "data file uploaded to this repoository"
 reg  ln_co2capita ln_gdpcapita, r
 reg  ln_co2capita ln_gdpcapita ln_gdpcapita_2 , r
 dis (r2_a)
@@ -171,7 +171,7 @@ xtfisher  ln_gdpcapita
 xtfisher   co2_capita
 xtfisher  country_id
 xtfisher  gdppercapita
-save "/Users/JGoldhill/Documents/Hani & JGold Carbon_GDP Data Analysis 1.dta"
+save "data file"
 twoway (scatter  ln_co2capita  gdppercapita)
 twoway (scatter  ln_co2capita  ln_gdpcapita)
 reg  ln_co2capita ln_gdpcapita ln_gdpcapita_2 ln_gdpcapita_3 i.country_id i.t_year , r
@@ -190,7 +190,7 @@ twoway (scatter ln_co2capita ln_gdpcapita if gdp_dummy<1) (qfit ln_co2capita ln_
 twoway (scatter ln_co2capita ln_gdpcapita if gdp_dummy<1) (qfit ln_co2capita ln_gdpcapita if gdp_dummy<1)
 twoway (scatter co2_capita gdppercapita if gdp_dummy>0) (qfit co2_capita gdppercapita if gdp_dummy>0)
 clear
-use "/Users/Hani/Desktop/EC 15 Research Paper /Hani & JGold Carbon|GDP Data Analysis.dta"
+use "data file uploaded to this repoository""
 drop ln_co2capita ln_gdpcapita
 sum
 xtset country_id t_year, yearly
@@ -205,7 +205,7 @@ gen ln_ ln_gdpcapita_2 =  ln_gdpcapita*ln_gdpcapita
 gen ln_gdpcapita_2 =  ln_gdpcapita*ln_gdpcapita
 reg  ln_co2capita ln_gdpcapita ln_gdpcapita_2
 reg  ln_co2capita ln_gdpcapita
-use "/Users/JGoldhill/Downloads/Hani & JGold Carbon_GDP Data Analysis.dta"
+use "data file uploaded to this repoository"
 twoway (scatter ln_co2capita ln_gdpcapita if gdp_dummy<1) (qfit ln_co2capita ln_gdpcapita if gdp_dummy<1)
 twoway (scatter co2_capita gdppercapita if gdp_dummy<1) (qfit co2_capita gdppercapita if gdp_dummy<1)
 twoway (scatter co2_capita gdppercapita if gdp_dummy<1 and if gdppercapita>2) (qfit co2_capita gdppercapita if gdp_dummy<1 and if gdppercapita>2)
